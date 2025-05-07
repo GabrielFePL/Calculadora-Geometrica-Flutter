@@ -96,3 +96,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  assets:
+    - assets/cps-55-anos.png
+    - assets/cst-dsm.png
+    - assets/fatec-matao.jpg

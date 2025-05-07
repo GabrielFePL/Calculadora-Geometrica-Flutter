@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:calculadora_geometrica/firebase_options.dart';
 import 'package:calculadora_geometrica/login_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:calculadora_geometrica/splash_screen.dart';
+import 'package:calculadora_geometrica/signup_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,18 +45,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.data != null) {
-            return const MyHomePage();
-          }
-          return const LoginPage();
-        },
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/login': (context) => const LoginPage(),
+        '/signup': (context) => const SignUpPage(),
+        '/home': (context) => const MyHomePage(),
+      },
     );
   }
 }
