@@ -24,12 +24,11 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Future<void> createUserWithEmailAndPassword() async {
     try {
-      final userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim(),
-          );
-      Navigator.pushReplacement(context, LoginPage.route());
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+      Navigator.pushReplacementNamed(context, '/signin');
     } on FirebaseAuthException catch (e) {
       print(e.message);
     }

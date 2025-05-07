@@ -23,14 +23,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> loginUserWithEmailAndPassword() async {
-    await FirebaseAuth.instance.signOut();
     try {
-      final userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim(),
-          );
-      print(userCredential);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+      Navigator.pushReplacementNamed(context, '/home');
     } on FirebaseAuthException catch (e) {
       print(e.message);
     }
@@ -92,6 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
