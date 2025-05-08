@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class MyHomePage extends StatefulWidget {
+  static route() => MaterialPageRoute(builder: (context) => const MyHomePage());
   const MyHomePage({super.key});
 
   @override
