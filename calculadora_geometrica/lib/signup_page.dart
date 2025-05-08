@@ -28,7 +28,7 @@ class _SignUpPageState extends State<SignUpPage> {
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-      Navigator.pushReplacementNamed(context, '/signin');
+      Navigator.push(context, LoginPage.route());
     } on FirebaseAuthException catch (e) {
       print(e.message);
     }

@@ -1,3 +1,5 @@
+import 'package:calculadora_geometrica/home_page.dart';
+import 'package:calculadora_geometrica/splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:calculadora_geometrica/signup_page.dart';
@@ -28,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.push(context, MyHomePage.route());
     } on FirebaseAuthException catch (e) {
       print(e.message);
     }

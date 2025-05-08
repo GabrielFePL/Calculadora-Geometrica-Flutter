@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:calculadora_geometrica/login_page.dart';
 
 class SplashScreen extends StatefulWidget {
+  static route() =>
+      MaterialPageRoute(builder: (context) => const SplashScreen());
   const SplashScreen({super.key});
 
   @override
@@ -9,18 +11,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  void navigateToLogin(BuildContext context) async {
-    await Future.delayed(const Duration(seconds: 3));
-  }
-
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(
-        context,
-        FirebaseAuth.instance.currentUser != null ? '/home' : '/signin',
-      );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(seconds: 2), () {
+        Navigator.pushReplacement(context, LoginPage.route());
+      });
     });
   }
 
@@ -52,6 +49,24 @@ class _SplashScreenState extends State<SplashScreen> {
               const Text('Sophia Tavares'),
               const SizedBox(height: 10),
               const Text('Versão 1.0'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, LoginPage.route());
+                },
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Already have an account? ',
+                    style: Theme.of(context).textTheme.titleMedium,
+                    children: [
+                      TextSpan(
+                        text: 'Sign In',
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
