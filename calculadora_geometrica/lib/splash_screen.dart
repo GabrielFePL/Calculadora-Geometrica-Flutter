@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(seconds: 2), () {
+      Future.delayed(const Duration(seconds: 5), () {
         Navigator.pushReplacement(context, LoginPage.route());
       });
     });
@@ -46,27 +46,8 @@ class _SplashScreenState extends State<SplashScreen> {
               const SizedBox(height: 20),
               const Text('Desenvolvedores:'),
               const Text('Gabriel Fecchio Paravani Larocca'),
-              const Text('Sophia Tavares'),
               const SizedBox(height: 10),
               const Text('Versão 1.0'),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context, LoginPage.route());
-                },
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Already have an account? ',
-                    style: Theme.of(context).textTheme.titleMedium,
-                    children: [
-                      TextSpan(
-                        text: 'Sign In',
-                        style: Theme.of(context).textTheme.titleMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
             ],
           ),
         ),

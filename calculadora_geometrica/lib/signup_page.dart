@@ -45,7 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Sign Up.',
+                'Cadastro',
                 style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
@@ -57,7 +57,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 15),
               TextFormField(
                 controller: passwordController,
-                decoration: const InputDecoration(hintText: 'Password'),
+                decoration: const InputDecoration(hintText: 'Senha'),
                 obscureText: true,
               ),
               const SizedBox(height: 20),
@@ -66,7 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   await createUserWithEmailAndPassword();
                 },
                 child: const Text(
-                  'SIGN UP',
+                  'Cadastre-se',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
@@ -77,11 +77,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 },
                 child: RichText(
                   text: TextSpan(
-                    text: 'Already have an account? ',
+                    text: 'Já possui uma conta? ',
                     style: Theme.of(context).textTheme.titleMedium,
                     children: [
                       TextSpan(
-                        text: 'Sign In',
+                        text: 'Acesse-a',
                         style: Theme.of(context).textTheme.titleMedium
                             ?.copyWith(fontWeight: FontWeight.bold),
                       ),
