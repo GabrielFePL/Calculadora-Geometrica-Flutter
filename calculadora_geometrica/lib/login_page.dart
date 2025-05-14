@@ -1,5 +1,4 @@
 import 'package:calculadora_geometrica/home_page.dart';
-import 'package:calculadora_geometrica/splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:calculadora_geometrica/signup_page.dart';
@@ -48,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Sign In.',
+                'Acesse sua conta',
                 style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 30),
@@ -59,17 +58,16 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 15),
               TextFormField(
                 controller: passwordController,
-                decoration: const InputDecoration(hintText: 'Password'),
+                decoration: const InputDecoration(hintText: 'Senha'),
                 obscureText: true,
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () async {
                   await loginUserWithEmailAndPassword();
-                  print('Login button pressed');
                 },
                 child: const Text(
-                  'SIGN IN',
+                  'Entrar',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
@@ -80,11 +78,11 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: RichText(
                   text: TextSpan(
-                    text: 'Don\'t have an account? ',
+                    text: 'Não possui uma conta? ',
                     style: Theme.of(context).textTheme.titleMedium,
                     children: [
                       TextSpan(
-                        text: 'Sign Up',
+                        text: 'Cadastre-se',
                         style: Theme.of(context).textTheme.titleMedium
                             ?.copyWith(fontWeight: FontWeight.bold),
                       ),
